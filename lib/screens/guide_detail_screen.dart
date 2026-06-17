@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cors_image/flutter_cors_image.dart';
 import '../models/guide.dart';
+import '../widgets/sar_price_text.dart';
 import 'booking_screen.dart';
 
 class GuideDetailScreen extends StatelessWidget {
@@ -205,8 +206,9 @@ class GuideDetailScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        '${guide.pricePerDay.toInt()} SAR / день',
+                      SarPriceText(
+                        sar: guide.pricePerDay,
+                        suffix: ' / день',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -214,16 +216,18 @@ class GuideDetailScreen extends StatelessWidget {
                         ),
                       ),
                       if (guide.pricePerHour != null)
-                        Text(
-                          '${guide.pricePerHour!.toInt()} SAR / час',
+                        SarPriceText(
+                          sar: guide.pricePerHour!,
+                          suffix: ' / час',
                           style: const TextStyle(
                             fontSize: 14,
                             color: Color(0xFF1B5E20),
                           ),
                         ),
                       if (guide.pricePerUmrah != null)
-                        Text(
-                          '${guide.pricePerUmrah!.toInt()} SAR / умра',
+                        SarPriceText(
+                          sar: guide.pricePerUmrah!,
+                          suffix: ' / умра',
                           style: const TextStyle(
                             fontSize: 14,
                             color: Color(0xFF1B5E20),
@@ -234,6 +238,34 @@ class GuideDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            // ========== ПРАЙС-ЛИСТ ПО УСЛУГАМ ==========
+            if (guide.pricing.isNotEmpty) ...[
+              const SizedBox(height: 16),
+              const Text(
+                '💰 Цены на услуги',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              ...guide.pricing.map(
+                (item) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(child: Text(item.name)),
+                      SarPriceText(
+                        sar: item.price,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1B5E20),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
             const SizedBox(height: 24),
 
             // ========== КНОПКА "ЗАБРОНИРОВАТЬ" ==========

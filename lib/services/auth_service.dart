@@ -13,8 +13,9 @@ class AuthService {
     required String phone,
     required String password,
     required String passwordConfirmation,
+    String role = 'client',
   }) async {
-    
+
     final response = await http.post(
       Uri.parse('$baseUrl/register'),
       headers: {'Content-Type': 'application/json'},
@@ -24,6 +25,7 @@ class AuthService {
         'phone': phone,
         'password': password,
         'password_confirmation': passwordConfirmation,
+        'role': role,
       }),
     );
 

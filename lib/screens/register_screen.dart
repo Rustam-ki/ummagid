@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_first_app/services/auth_service.dart';
 import 'package:my_first_app/screens/login_screen.dart';
 import 'package:my_first_app/screens/profile_screen.dart';
+import 'package:my_first_app/screens/guide_cabinet_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -21,6 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _isLoading = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
+  bool _isGuide = false;
 
   Future<void> _register() async {
     if (!_formKey.currentState!.validate()) return;
@@ -35,6 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       phone: _phoneController.text.trim(),
       password: _passwordController.text,
       passwordConfirmation: _passwordConfirmController.text,
+      role: _isGuide ? 'guide' : 'client',
     );
 
     setState(() {
@@ -48,7 +51,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         );
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const ProfileScreen()),
+          MaterialPageRoute(
+            builder: (context) => _isGuide
+                ? const GuideCabinetScreen()
+                : const ProfileScreen(),
+          ),
         );
       }
     } else {
@@ -160,7 +167,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 8),
+              SwitchListTile(
+                value: _isGuide,
+                onChanged: (value) => setState(() => _isGuide = value),
+                activeThumbColor: const Color(0xFF1B5E20),
+                contentPadding: EdgeInsets.zero,
+                title: const Text('Я гид'),
+                subtitle: const Text('Хочу принимать заявки от туристов'),
+              ),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _isLoading ? null : _register,
                 style: ElevatedButton.styleFrom(

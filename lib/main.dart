@@ -5,6 +5,7 @@ import 'dart:convert';
 import '../models/guide.dart';      // ← если файл в папке models
 import '../services/api_service.dart';
 import '../screens/guide_detail_screen.dart';
+import 'widgets/sar_price_text.dart';
 import 'package:flutter_cors_image/flutter_cors_image.dart'; // ← ДОБАВЬТЕ ЭТУ СТРОКУ
 import 'screens/my_bookings_screen.dart';
 import 'screens/profile_screen.dart';
@@ -827,8 +828,8 @@ class _MainScreenState extends State<MainScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '$price SAR',
+                        SarPriceText(
+                          sar: guide.pricePerDay,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF1B5E20),
