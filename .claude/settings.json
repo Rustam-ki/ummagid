@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($sdk=\"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; \\(1..50 | ForEach-Object {\"y\"}\\) | & \"$sdk\\\\cmdline-tools\\\\latest\\\\bin\\\\sdkmanager.bat\" --licenses --sdk_root=\"$sdk\")",
+      "PowerShell($flbin=\"C:\\\\src\\\\flutter\\\\bin\"; & \"$flbin\\\\flutter.bat\" doctor)",
+      "PowerShell($sdk=\"$env:LOCALAPPDATA\\\\Android\\\\Sdk\"; $yf=\"$env:TEMP\\\\yes.txt\"; \\(1..100 | ForEach-Object {\"y\"}\\) -join \"`r`n\" | Out-File -FilePath $yf -Encoding ascii; $sm=\"$sdk\\\\cmdline-tools\\\\latest\\\\bin\\\\sdkmanager.bat\"; cmd /c \"`\"$sm`\" --licenses --sdk_root=`\"$sdk`\" < `\"$yf`\"\"; \"=== EXIT $LASTEXITCODE ===\")",
+      "PowerShell($flbin=\"C:\\\\src\\\\flutter\\\\bin\"; & \"$flbin\\\\flutter.bat\" devices)",
+      "PowerShell($flbin=\"C:\\\\src\\\\flutter\\\\bin\"; Set-Location \"c:\\\\Users\\\\qwert\\\\OneDrive\\\\Рабочий стол\\\\my_first_app\"; & \"$flbin\\\\flutter.bat\" run -d Z5A6RK5TPZXK49NF)",
+      "Bash(find lib *)",
+      "Bash(npm --version)",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_PORT=22 SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"echo connected && pwd && whoami\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"ls -la ~ && echo '---' && ls -la ~/umragid.ru 2>/dev/null || find / -maxdepth 3 -iname '*umragid*' 2>/dev/null\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"ls -la ~/umragid.ru/public_html\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && cat app/Http/Controllers/Api/AuthController.php\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && cat app/Models/User.php\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && ls database/migrations && echo '---GUIDES---' && cat app/Models/Guide.php\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && echo '--- guides table ---' && cat database/migrations/2026_04_04_191653_create_guides_table.php && echo '--- add_all_missing_fields ---' && cat database/migrations/2026_04_11_145358_add_all_missing_fields_to_guides_table.php && echo '--- add_services ---' && cat database/migrations/2026_04_11_150158_add_services_to_guides_table.php\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && cat database/migrations/2026_04_04_191915_create_bookings_table.php && echo '---model---' && cat app/Models/Booking.php\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && php -v && echo '---' && php artisan --version\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"ls /usr/local/php* -d 2>/dev/null; ls /usr/bin/php* 2>/dev/null; which -a php8.2 php82 2>/dev/null; cat ~/.bashrc\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && /usr/local/bin/php8.2 -v && /usr/local/bin/php8.2 artisan --version\")",
+      "Bash(SSH_HOST=webmarq7.beget.tech SSH_USER=webmarq7 SSH_PASS='AcJdH1Qj' node run.js \"cd ~/webmarq7.beget.tech/public_html && /usr/local/bin/php8.2 artisan migrate:status\")",
+      "Bash(git --version)"
+    ],
+    "additionalDirectories": [
+      "c:\\src\\my_first_app"
+    ]
+  }
+}
