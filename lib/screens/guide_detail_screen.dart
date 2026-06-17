@@ -209,6 +209,7 @@ class GuideDetailScreen extends StatelessWidget {
                       SarPriceText(
                         sar: guide.pricePerDay,
                         suffix: ' / день',
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -219,6 +220,7 @@ class GuideDetailScreen extends StatelessWidget {
                         SarPriceText(
                           sar: guide.pricePerHour!,
                           suffix: ' / час',
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           style: const TextStyle(
                             fontSize: 14,
                             color: Color(0xFF1B5E20),
@@ -228,6 +230,7 @@ class GuideDetailScreen extends StatelessWidget {
                         SarPriceText(
                           sar: guide.pricePerUmrah!,
                           suffix: ' / умра',
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           style: const TextStyle(
                             fontSize: 14,
                             color: Color(0xFF1B5E20),
