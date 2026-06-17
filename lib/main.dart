@@ -74,8 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _screens = [
     const MainScreen(),
     const UmraScreen(),
-    const PrayerTimesScreen(),
-    const QiblaScreen(),
     const BestDaysScreen(),
     const ReviewsScreen(),
     const MyBookingsScreen(),
@@ -100,8 +98,6 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
           BottomNavigationBarItem(icon: Icon(Icons.mosque), label: 'Умра'),
-          BottomNavigationBarItem(icon: Icon(Icons.access_time), label: 'Намазы'),
-          BottomNavigationBarItem(icon: Icon(Icons.compass_calibration), label: 'Кибла'),
           BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: 'Лучшие дни'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Отзывы'),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Мои брони'),
