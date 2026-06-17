@@ -217,7 +217,11 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
               borderRadius: BorderRadius.circular(isSmall ? 8 : 10),
             ),
             child: Center(
-              child: Text('🕋', style: TextStyle(fontSize: isSmall ? 16 : 20)),
+              child: Icon(
+                Icons.mosque,
+                color: Colors.white,
+                size: isSmall ? 18 : 22,
+              ),
             ),
           ),
           SizedBox(width: isSmall ? 8 : 12),
@@ -688,7 +692,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '📊 Статистика',
+            'Статистика',
             style: TextStyle(
               fontSize: isUltraSmall ? 16 : 20,
               fontWeight: FontWeight.bold,
@@ -766,7 +770,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '🎯 Наша миссия',
+            'Наша миссия',
             style: TextStyle(
               fontSize: isUltraSmall ? 16 : 20,
               fontWeight: FontWeight.bold,
@@ -1301,27 +1305,27 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
           ),
           SizedBox(height: isUltraSmall ? 10 : (isVerySmall ? 12 : 20)),
           _buildBenefitItem(
-            '✅',
+            Icons.check_circle,
             'Самостоятельная Умра дешевле на 30-50%',
             isCompact: isVerySmall,
           ),
           SizedBox(height: isUltraSmall ? 6 : (isVerySmall ? 8 : 12)),
           _buildBenefitItem(
-            '✅',
+            Icons.check_circle,
             'Цена тура: \$2000-3000',
             isCompact: isVerySmall,
           ),
           SizedBox(height: isUltraSmall ? 6 : (isVerySmall ? 8 : 12)),
           _buildBenefitItem(
-            '✅',
+            Icons.check_circle,
             'Самостоятельно: \$1000-1500',
             isCompact: isVerySmall,
           ),
           SizedBox(height: isUltraSmall ? 6 : (isVerySmall ? 8 : 12)),
-          _buildBenefitItem('✅', 'Отели от \$30/ночь', isCompact: isVerySmall),
+          _buildBenefitItem(Icons.check_circle, 'Отели от \$30/ночь', isCompact: isVerySmall),
           SizedBox(height: isUltraSmall ? 6 : (isVerySmall ? 8 : 12)),
           _buildBenefitItem(
-            '✅',
+            Icons.check_circle,
             'Виза: бесплатно (онлайн)',
             isCompact: isVerySmall,
           ),
@@ -1512,15 +1516,16 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     );
   }
 
-  Widget _buildBenefitItem(String icon, String text, {bool isCompact = false}) {
+  Widget _buildBenefitItem(IconData icon, String text, {bool isCompact = false}) {
     final isUltraSmall = _isUltraSmall();
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        Icon(
           icon,
-          style: TextStyle(fontSize: isUltraSmall ? 11 : (isCompact ? 13 : 16)),
+          color: Colors.white,
+          size: isUltraSmall ? 14 : (isCompact ? 16 : 18),
         ),
         SizedBox(width: isUltraSmall ? 4 : 8),
         Expanded(
@@ -1617,7 +1622,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                '🏨 Забронируйте отель',
+                                'Забронируйте отель',
                                 style: TextStyle(
                                   fontSize: isUltraSmall
                                       ? 18
@@ -1653,7 +1658,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '📋 Что вы можете забронировать на Trip.com:',
+                        'Что вы можете забронировать на Trip.com:',
                         style: TextStyle(
                           fontSize: isUltraSmall ? 14 : (isMobile ? 16 : 20),
                           fontWeight: FontWeight.bold,
@@ -2048,20 +2053,32 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
           ),
         ),
         SizedBox(height: isUltraSmall ? 4 : 8),
-        Text(
-          '📧 info@muslimguide.com',
-          style: TextStyle(
-            color: Colors.white70,
-            fontSize: isUltraSmall ? 10 : 12,
-          ),
+        Row(
+          children: [
+            Icon(Icons.email_outlined, size: isUltraSmall ? 12 : 14, color: Colors.white70),
+            SizedBox(width: isUltraSmall ? 4 : 6),
+            Text(
+              'info@muslimguide.com',
+              style: TextStyle(
+                color: Colors.white70,
+                fontSize: isUltraSmall ? 10 : 12,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: isUltraSmall ? 2 : 4),
-        Text(
-          '📞 +7 (999) 123-45-67',
-          style: TextStyle(
-            color: Colors.white70,
-            fontSize: isUltraSmall ? 10 : 12,
-          ),
+        Row(
+          children: [
+            Icon(Icons.call_outlined, size: isUltraSmall ? 12 : 14, color: Colors.white70),
+            SizedBox(width: isUltraSmall ? 4 : 6),
+            Text(
+              '+7 (999) 123-45-67',
+              style: TextStyle(
+                color: Colors.white70,
+                fontSize: isUltraSmall ? 10 : 12,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: isUltraSmall ? 10 : 16),
         Row(
@@ -2139,7 +2156,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       SizedBox(width: isUltraSmall ? 6 : 12),
                       Expanded(
                         child: Text(
-                          '🕋 Как организовать Умру?',
+                          'Как организовать Умру?',
                           style: TextStyle(
                             fontSize: isUltraSmall ? 14 : (isMobile ? 16 : 20),
                             fontWeight: FontWeight.bold,
@@ -2166,34 +2183,39 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         _buildTipSection(
-                          '✈️ 1. Авиабилеты',
+                          Icons.flight_outlined,
+                          '1. Авиабилеты',
                           '• Авиакомпании: Saudia, FlyNas, Air Arabia\n'
                               '• Лучшие цены: за 2-3 месяца\n'
                               '• Средняя цена: \$400-700\n'
                               '• Стыковки: Дубай, Доха, Стамбул',
                         ),
                         _buildTipSection(
-                          '🏨 2. Отели',
+                          Icons.hotel_outlined,
+                          '2. Отели',
                           '• Booking.com, Agoda, Expedia\n'
                               '• Мекка: от \$30/ночь\n'
                               '• Медина: от \$25/ночь\n'
                               '• Рядом с Харамом',
                         ),
                         _buildTipSection(
-                          '📄 3. Виза',
+                          Icons.badge_outlined,
+                          '3. Виза',
                           '• Виза для Умры - БЕСПЛАТНО!\n'
                               '• Оформление онлайн\n'
                               '• Нужен: загранпаспорт, фото\n'
                               '• Время: 5-15 минут',
                         ),
                         _buildTipSection(
-                          '🚐 4. Трансферы',
+                          Icons.directions_bus_outlined,
+                          '4. Трансферы',
                           '• Такси: Uber, Careem\n'
                               '• Поезд Haramain\n'
                               '• Автобусы SAPTCO',
                         ),
                         _buildTipSection(
-                          '💡 5. Советы',
+                          Icons.lightbulb_outline,
+                          '5. Советы',
                           '• Местные кафе дешевле\n'
                               '• Вода в супермаркетах\n'
                               '• Приложение Nusuk',
@@ -2242,7 +2264,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     );
   }
 
-  Widget _buildTipSection(String title, String content) {
+  Widget _buildTipSection(IconData icon, String title, String content) {
     final isUltraSmall = _isUltraSmall();
 
     return Padding(
@@ -2250,12 +2272,18 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: isUltraSmall ? 13 : 16,
-              fontWeight: FontWeight.bold,
-            ),
+          Row(
+            children: [
+              Icon(icon, size: isUltraSmall ? 16 : 18, color: const Color(0xFF0F6B52)),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: isUltraSmall ? 13 : 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
           SizedBox(height: isUltraSmall ? 4 : 8),
           Text(

@@ -51,9 +51,27 @@ class _BookingScreenState extends State<BookingScreen> {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text('⭐ ${widget.guide.rating} (${widget.guide.reviewsCount} отзывов)'),
-                    Text('📍 ${widget.guide.cityName}'),
-                    Text('💵 ${widget.guide.pricePerDay} SAR/день'),
+                    Row(
+                      children: [
+                        const Icon(Icons.star, size: 16, color: Colors.amber),
+                        const SizedBox(width: 4),
+                        Text('${widget.guide.rating} (${widget.guide.reviewsCount} отзывов)'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.place_outlined, size: 16, color: Colors.grey),
+                        const SizedBox(width: 4),
+                        Text(widget.guide.cityName),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.payments_outlined, size: 16, color: Colors.grey),
+                        const SizedBox(width: 4),
+                        Text('${widget.guide.pricePerDay} SAR/день'),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -286,7 +304,7 @@ class _BookingScreenState extends State<BookingScreen> {
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('✅ Бронирование создано!'),
+            content: Text('Бронирование создано!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -300,7 +318,7 @@ class _BookingScreenState extends State<BookingScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              '❌ Ошибка: ${responseData['message'] ?? response.statusCode}',
+              'Ошибка: ${responseData['message'] ?? response.statusCode}',
             ),
             backgroundColor: Colors.red,
           ),
@@ -314,7 +332,7 @@ class _BookingScreenState extends State<BookingScreen> {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('❌ Ошибка соединения: $e'),
+          content: Text('Ошибка соединения: $e'),
           backgroundColor: Colors.red,
         ),
       );

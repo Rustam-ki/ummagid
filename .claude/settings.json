@@ -17,7 +17,11 @@
       "Bash(cd /c/src/ssh_tool && node run.js *)",
       "Bash(node run.js *)",
       "Bash(awk -F: '$1>118 && $1<1785')",
-      "Bash(awk 'NR==118,NR==1785 {if \\($0 ~ /Widget build\\\\\\(BuildContext context\\\\\\)/\\) print NR\": \"$0}' /c/src/my_first_app/lib/main.dart)"
+      "Bash(awk 'NR==118,NR==1785 {if \\($0 ~ /Widget build\\\\\\(BuildContext context\\\\\\)/\\) print NR\": \"$0}' /c/src/my_first_app/lib/main.dart)",
+      "Read(//c/src/flutter/packages/flutter/lib/src/material/**)",
+      "Bash(node -e ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ],
     "additionalDirectories": [
       "c:\\src\\my_first_app",

@@ -270,40 +270,45 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   const Center(
                     child: Text(
-                      '🕋 Как организовать Умру самостоятельно?',
+                      'Как организовать Умру самостоятельно?',
                       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(height: 20),
                   _buildTipSection(
-                    '✈️ 1. Авиабилеты',
+                    Icons.flight_outlined,
+                    '1. Авиабилеты',
                     '• Авиакомпании: Saudia, FlyNas, Air Arabia, FlyDubai\n'
                     '• Лучшие цены: за 2-3 месяца до поездки\n'
                     '• Средняя цена: \$400-700 из Москвы\n'
                     '• Стыковки: через Дубай, Доху, Стамбул',
                   ),
                   _buildTipSection(
-                    '🏨 2. Отели',
+                    Icons.hotel_outlined,
+                    '2. Отели',
                     '• Booking.com, Agoda, Expedia\n'
                     '• Мекка: от \$30/ночь (3*), \$80-150 (5*)\n'
                     '• Медина: от \$25/ночь (3*), \$60-120 (5*)\n'
                     '• Выбирайте отели рядом с Харамом',
                   ),
                   _buildTipSection(
-                    '📄 3. Виза',
+                    Icons.badge_outlined,
+                    '3. Виза',
                     '• Виза для Умры - БЕСПЛАТНО!\n'
                     '• Оформление онлайн: официальный сайт МИД КСА\n'
                     '• Нужен: загранпаспорт, фото, страховка\n'
                     '• Время получения: 5-15 минут',
                   ),
                   _buildTipSection(
-                    '🚐 4. Трансферы',
+                    Icons.directions_bus_outlined,
+                    '4. Трансферы',
                     '• Такси: Uber, Careem (дешевле отельных)\n'
                     '• Поезд Haramain: Мекка-Медина за 2 часа\n'
                     '• Автобусы SAPTCO: бюджетный вариант',
                   ),
                   _buildTipSection(
-                    '💡 5. Советы по экономии',
+                    Icons.lightbulb_outline,
+                    '5. Советы по экономии',
                     '• Ешьте в местных кафе (дешевле отельных)\n'
                     '• Покупайте воду в супермаркетах\n'
                     '• Используйте общественный транспорт\n'
@@ -494,7 +499,7 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               const Center(
                 child: Text(
-                  '🛎️ Помощь при заселении',
+                  'Помощь при заселении',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -504,12 +509,12 @@ class _MainScreenState extends State<MainScreen> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 12),
-              _buildHelpListItem('🚐 Встреча в аэропорту с табличкой'),
-              _buildHelpListItem('🏨 Трансфер до отеля на комфортном авто'),
-              _buildHelpListItem('📋 Помощь с заполнением документов'),
-              _buildHelpListItem('🗣️ Перевод при общении с ресепшен'),
-              _buildHelpListItem('🔑 Помощь с заселением и багажом'),
-              _buildHelpListItem('📞 Контакт 24/7 на время вашего пребывания'),
+              _buildHelpListItem('Встреча в аэропорту с табличкой'),
+              _buildHelpListItem('Трансфер до отеля на комфортном авто'),
+              _buildHelpListItem('Помощь с заполнением документов'),
+              _buildHelpListItem('Перевод при общении с ресепшен'),
+              _buildHelpListItem('Помощь с заселением и багажом'),
+              _buildHelpListItem('Контакт 24/7 на время вашего пребывания'),
               const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.all(12),
@@ -596,13 +601,19 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _buildTipSection(String title, String content) {
+  Widget _buildTipSection(IconData icon, String title, String content) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Row(
+            children: [
+              Icon(icon, size: 18, color: const Color(0xFF0F6B52)),
+              const SizedBox(width: 8),
+              Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            ],
+          ),
           const SizedBox(height: 8),
           Text(
             content,
@@ -1663,7 +1674,7 @@ class _MainScreenState extends State<MainScreen> {
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                               textStyle: const TextStyle(
                                 fontSize: 16,
@@ -1790,7 +1801,7 @@ class _MainScreenState extends State<MainScreen> {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(24),
               ),
               child: const Row(
                 children: [
@@ -1924,7 +1935,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(color: const Color(0xFF0F6B52).withOpacity(0.06), blurRadius: 8),
                 ],
@@ -1996,7 +2007,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(color: const Color(0xFF0F6B52).withOpacity(0.06), blurRadius: 8),
                 ],
@@ -2135,7 +2146,7 @@ class QiblaScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        '⬆️ НАПРАВЛЕНИЕ НА КААБУ ⬆️',
+                        'НАПРАВЛЕНИЕ НА КААБУ',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -2200,7 +2211,7 @@ class QiblaScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.amber[50],
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(color: Colors.amber.shade200),
                 ),
                 child: const Row(
@@ -2273,40 +2284,46 @@ class BestDaysScreen extends StatelessWidget {
         child: Column(
           children: [
             _buildBestDayCard(
-              '📅 Месяц Рамадан',
+              Icons.calendar_month_outlined,
+              'Месяц Рамадан',
               'Особое благословение',
               'Умра в Рамадане приравнивается к Хаджу по вознаграждению',
-              '⭐ Особое значение',
+              'Особое значение',
             ),
             _buildBestDayCard(
-              '🕋 Пятница (Джума)',
+              Icons.mosque_outlined,
+              'Пятница (Джума)',
               'Лучший день недели',
               'В пятницу особенно благословенны любые благие дела',
-              '📆 Каждую пятницу',
+              'Каждую пятницу',
             ),
             _buildBestDayCard(
-              '🌙 15 Ша\'бана',
+              Icons.nightlight_outlined,
+              '15 Ша\'бана',
               'Ночь Бараат',
               'Ночь прощения и милости Всевышнего',
-              '🤲 Ночь поклонения',
+              'Ночь поклонения',
             ),
             _buildBestDayCard(
-              '📖 Первые 10 дней Зуль-хиджа',
+              Icons.menu_book_outlined,
+              'Первые 10 дней Зуль-хиджа',
               'Благословенные дни',
               'Лучшие дни в году для поклонения',
-              '✨ Высокая награда',
+              'Высокая награда',
             ),
             _buildBestDayCard(
-              '🌙 1 Мухаррам',
+              Icons.nightlight_outlined,
+              '1 Мухаррам',
               'Начало нового года',
               'День поминания и покаяния',
-              '🕌 Желательный пост',
+              'Желательный пост',
             ),
             _buildBestDayCard(
-              '📿 День Ашура',
+              Icons.auto_awesome_outlined,
+              'День Ашура',
               '10 Мухаррам',
               'День спасения пророков, желательный пост',
-              '🙏 Прощение грехов',
+              'Прощение грехов',
             ),
           ],
         ),
@@ -2315,6 +2332,7 @@ class BestDaysScreen extends StatelessWidget {
   }
 
   Widget _buildBestDayCard(
+    IconData icon,
     String title,
     String subtitle,
     String description,
@@ -2322,8 +2340,6 @@ class BestDaysScreen extends StatelessWidget {
   ) {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -2332,6 +2348,8 @@ class BestDaysScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Icon(icon, color: const Color(0xFF0F6B52), size: 22),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Text(
                     title,
@@ -2496,7 +2514,6 @@ class ReviewsScreen extends StatelessWidget {
   ) {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

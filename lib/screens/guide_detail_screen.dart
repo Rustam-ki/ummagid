@@ -28,10 +28,10 @@ class GuideDetailScreen extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
                 child:
                     guide.photoUrl != null && guide.photoUrl!.startsWith('http')
                     ? CustomNetworkImage(
@@ -89,9 +89,16 @@ class GuideDetailScreen extends StatelessWidget {
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: Text(
-                    '⭐ ${guide.rating.toStringAsFixed(1)}',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.star, size: 16, color: Colors.black87),
+                      const SizedBox(width: 4),
+                      Text(
+                        guide.rating.toStringAsFixed(1),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -99,28 +106,37 @@ class GuideDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
 
             // ========== ГОРОД И ЯЗЫКИ ==========
-            Text(
-              '📍 ${guide.cityName}',
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            Row(
+              children: [
+                const Icon(Icons.place_outlined, size: 18, color: Colors.grey),
+                const SizedBox(width: 4),
+                Text(
+                  guide.cityName,
+                  style: const TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ],
             ),
             const SizedBox(height: 4),
-            Text(
-              '🗣️ ${guide.languages.map((l) {
-                if (l == 'russian') return 'Русский';
-                if (l == 'arabic') return 'Арабский';
-                if (l == 'english') return 'Английский';
-                return l;
-              }).join(', ')}',
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
+            Row(
+              children: [
+                const Icon(Icons.translate, size: 16, color: Colors.grey),
+                const SizedBox(width: 4),
+                Text(
+                  guide.languages.map((l) {
+                    if (l == 'russian') return 'Русский';
+                    if (l == 'arabic') return 'Арабский';
+                    if (l == 'english') return 'Английский';
+                    return l;
+                  }).join(', '),
+                  style: const TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
 
             // ========== О СЕБЕ (БИОГРАФИЯ) ==========
             if (guide.bio != null && guide.bio!.isNotEmpty) ...[
-              const Text(
-                '📖 О себе',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              _detailSectionTitle(Icons.menu_book_outlined, 'О себе'),
               const SizedBox(height: 8),
               Text(
                 guide.bio!,
@@ -131,10 +147,7 @@ class GuideDetailScreen extends StatelessWidget {
 
             // ========== ОПЫТ ==========
             if (guide.experienceYears != null || guide.groupsCount != null) ...[
-              const Text(
-                '👨‍🏫 Опыт',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              _detailSectionTitle(Icons.workspace_premium_outlined, 'Опыт'),
               const SizedBox(height: 8),
               if (guide.experienceYears != null)
                 Text('• Опыт работы: ${guide.experienceYears} лет'),
@@ -145,10 +158,7 @@ class GuideDetailScreen extends StatelessWidget {
 
             // ========== УСЛУГИ ==========
             if (guide.services != null && guide.services!.isNotEmpty) ...[
-              const Text(
-                '🛎️ Услуги',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              _detailSectionTitle(Icons.room_service_outlined, 'Услуги'),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
@@ -165,10 +175,7 @@ class GuideDetailScreen extends StatelessWidget {
 
             // ========== АВТОМОБИЛЬ ==========
             if (guide.hasCar == true) ...[
-              const Text(
-                '🚗 Автомобиль',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              _detailSectionTitle(Icons.directions_car_outlined, 'Автомобиль'),
               const SizedBox(height: 8),
               if (guide.carModel != null) Text('• Модель: ${guide.carModel}'),
               if (guide.carCapacity != null)
@@ -177,10 +184,7 @@ class GuideDetailScreen extends StatelessWidget {
             ],
 
             // ========== КОНТАКТЫ ==========
-            const Text(
-              '📞 Контакты',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            _detailSectionTitle(Icons.call_outlined, 'Контакты'),
             const SizedBox(height: 8),
             if (guide.phone != null && guide.phone!.isNotEmpty)
               Text('• Телефон: ${guide.phone}'),
@@ -197,7 +201,7 @@ class GuideDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: const Color(0xFF0F6B52).withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -245,10 +249,7 @@ class GuideDetailScreen extends StatelessWidget {
             // ========== ПРАЙС-ЛИСТ ПО УСЛУГАМ ==========
             if (guide.pricing.isNotEmpty) ...[
               const SizedBox(height: 16),
-              const Text(
-                '💰 Цены на услуги',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              _detailSectionTitle(Icons.payments_outlined, 'Цены на услуги'),
               const SizedBox(height: 8),
               ...guide.pricing.map(
                 (item) => Padding(
@@ -288,7 +289,7 @@ class GuideDetailScreen extends StatelessWidget {
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(16),
                   ),
                 ),
                 child: const Text(
@@ -300,6 +301,19 @@ class GuideDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _detailSectionTitle(IconData icon, String text) {
+    return Row(
+      children: [
+        Icon(icon, size: 20, color: const Color(0xFF0F6B52)),
+        const SizedBox(width: 8),
+        Text(
+          text,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
