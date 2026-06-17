@@ -107,6 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+const _kSavingsPoints = [
+  'Самостоятельная организация Умры обходится на 30-50% дешевле',
+  'Средняя цена тура от туроператора: \$2000-3000',
+  'Самостоятельно: \$1000-1500 (авиабилеты + отель)',
+  'Отели от \$30/ночь в Мекке и Медине',
+  'Виза для Умры: бесплатно (оформляется онлайн)',
+];
+
 // ========== ГЛАВНЫЙ ЭКРАН МАРКЕТПЛЕЙСА ==========
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -131,10 +139,10 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 // Вспомогательный метод для отображения пунктов списка отелей
-  Widget _buildHotelFeatureRow(String emoji, String text) {
+  Widget _buildHotelFeatureRow(IconData icon, String text) {
     return Row(
       children: [
-        Text(emoji, style: const TextStyle(fontSize: 16)),
+        Icon(icon, size: 18, color: const Color(0xFF1B5E20)),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
@@ -558,9 +566,16 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   // Виджет категории (чип)
-  Widget _buildCategoryChip(String label, int index) {
+  Widget _buildCategoryChip(String label, int index, {IconData? icon}) {
     bool isSelected = _selectedCategory == label;
     return FilterChip(
+      avatar: icon != null
+          ? Icon(
+              icon,
+              size: 18,
+              color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[600],
+            )
+          : null,
       label: Text(label),
       selected: isSelected,
       onSelected: (selected) {
@@ -570,7 +585,7 @@ class _MainScreenState extends State<MainScreen> {
       },
       backgroundColor: Colors.white,
       selectedColor: const Color(0xFF1B5E20).withOpacity(0.1),
-      checkmarkColor: const Color(0xFF1B5E20),
+      showCheckmark: false,
       labelStyle: TextStyle(
         color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[700],
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
@@ -579,6 +594,23 @@ class _MainScreenState extends State<MainScreen> {
         side: BorderSide(
           color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[300]!,
         ),
+      ),
+    );
+  }
+
+  // Заголовок секции (иконка + текст, без эмодзи)
+  Widget _sectionTitle(String text, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: const Color(0xFF1B5E20)),
+          const SizedBox(width: 8),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }
@@ -667,7 +699,7 @@ class _MainScreenState extends State<MainScreen> {
             child: _buildGuideMarketCard(
               guide: guide,
               name: guide.name,
-              photo: guide.photoUrl ?? '👳‍♂️',
+              photo: guide.photoUrl ?? '',
               rating: guide.rating,
               reviews: guide.reviewsCount,
               price: guide.pricePerDay.toString(),
@@ -736,9 +768,9 @@ class _MainScreenState extends State<MainScreen> {
                         height: 120,
                         fit: BoxFit.cover,
                       )
-                    : Center(
-                        child: Text(photo.isNotEmpty ? photo : '👳‍♂️', 
-                        style: const TextStyle(fontSize: 60)),
+                    : const Center(
+                        child: Icon(Icons.person,
+                            size: 48, color: Color(0xFF1B5E20)),
                       ),
               ),
               if (isOnline)
@@ -992,7 +1024,7 @@ class _MainScreenState extends State<MainScreen> {
     required String price,
     required String groupSize,
     required double rating,
-    required String imageIcon,
+    required IconData imageIcon,
   }) {
     return Container(
       width: 220,
@@ -1020,7 +1052,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             child: Center(
-              child: Text(imageIcon, style: const TextStyle(fontSize: 50)),
+              child: Icon(imageIcon, size: 48, color: const Color(0xFF1B5E20)),
             ),
           ),
           Padding(
@@ -1104,42 +1136,13 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF7F8FA),
       appBar: AppBar(
-        title: const Text('Umra Market'),
+        title: const Text('Umra Guide'),
         backgroundColor: const Color(0xFF1B5E20),
         foregroundColor: Colors.white,
         centerTitle: false,
-        actions: [
-          // Корзина/бронирования
-          Stack(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.shopping_bag_outlined),
-                onPressed: () {},
-              ),
-              Positioned(
-                right: 8,
-                top: 8,
-                child: Container(
-                  padding: const EdgeInsets.all(2),
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
-                  ),
-                  constraints: const BoxConstraints(
-                    minWidth: 16,
-                    minHeight: 16,
-                  ),
-                  child: const Text(
-                    '3',
-                    style: TextStyle(color: Colors.white, fontSize: 10),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -1148,27 +1151,20 @@ class _MainScreenState extends State<MainScreen> {
             // ========== ПОИСКОВАЯ СТРОКА ==========
             Padding(
               padding: const EdgeInsets.all(16),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      blurRadius: 10,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Поиск гидов, трансферов, экскурсий...',
-                    prefixIcon: Icon(Icons.search, color: Color(0xFF1B5E20)),
-                    suffixIcon: Icon(Icons.tune, color: Color(0xFF1B5E20)),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.all(16),
+              child: SearchBar(
+                hintText: 'Поиск гидов, трансферов, экскурсий...',
+                elevation: const WidgetStatePropertyAll(0),
+                backgroundColor: const WidgetStatePropertyAll(Colors.white),
+                shape: WidgetStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    side: BorderSide(color: Colors.grey.shade200),
                   ),
                 ),
+                leading: const Icon(Icons.search, color: Color(0xFF1B5E20)),
+                trailing: const [
+                  Icon(Icons.tune, color: Color(0xFF1B5E20)),
+                ],
               ),
             ),
             const SizedBox(height: 16),
@@ -1212,19 +1208,30 @@ class _MainScreenState extends State<MainScreen> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  const Text(
-                    '✅ Самостоятельная организация Умры обходится на 30-50% дешевле\n'
-                    '✅ Средняя цена тура от туроператора: \$2000-3000\n'
-                    '✅ Самостоятельно: \$1000-1500 (авиабилеты + отель)\n'
-                    '✅ Отели от \$30/ночь в Мекке и Медине\n'
-                    '✅ Виза для Умры: бесплатно (оформляется онлайн)',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.white70,
-                      height: 1.5,
+                  ..._kSavingsPoints.map(
+                    (point) => Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.check_circle,
+                              color: Colors.amber, size: 16),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              point,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                color: Colors.white70,
+                                height: 1.4,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 6),
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -1247,7 +1254,7 @@ class _MainScreenState extends State<MainScreen> {
                   const SizedBox(height: 12),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(
+                    child: OutlinedButton.icon(
                       onPressed: () {
                         _showIndependentTipsDialog(context);
                       },
@@ -1257,8 +1264,9 @@ class _MainScreenState extends State<MainScreen> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                       ),
-                      child: const Text(
-                        '📘 Как организовать Умру самостоятельно?',
+                      icon: const Icon(Icons.menu_book, color: Colors.white, size: 18),
+                      label: const Text(
+                        'Как организовать Умру самостоятельно?',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -1277,12 +1285,11 @@ class _MainScreenState extends State<MainScreen> {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
+                    color: Colors.grey.withOpacity(0.08),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
                 ],
-                border: Border.all(color: const Color(0xFF1B5E20).withOpacity(0.2)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1382,11 +1389,11 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     _buildCategoryChip('Все', 0),
                     const SizedBox(width: 8),
-                    _buildCategoryChip('👨‍🏫 Гиды', 1),
+                    _buildCategoryChip('Гиды', 1, icon: Icons.person_outline),
                     const SizedBox(width: 8),
-                    _buildCategoryChip('🚐 Трансферы', 2),
+                    _buildCategoryChip('Трансферы', 2, icon: Icons.directions_car_outlined),
                     const SizedBox(width: 8),
-                    _buildCategoryChip('🕌 Экскурсии', 3),
+                    _buildCategoryChip('Экскурсии', 3, icon: Icons.tour_outlined),
                     const SizedBox(width: 8),
                   ],
                 ),
@@ -1461,27 +1468,15 @@ class _MainScreenState extends State<MainScreen> {
             const SizedBox(height: 20),
 
             // ========== СПИСОК ГИДОВ (ИЗ API) ==========
-            if (_selectedCategory == 'Все' || _selectedCategory == '👨‍🏫 Гиды') ...[
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  '👨‍🏫 Популярные гиды',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
+            if (_selectedCategory == 'Все' || _selectedCategory == 'Гиды') ...[
+              _sectionTitle('Популярные гиды', Icons.person_outline),
               const SizedBox(height: 12),
               _buildGuidesList(),
               const SizedBox(height: 24),
             ],
 
             // ========== ОТЕЛИ (ССЫЛКА НА TRIP.COM) ==========
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                '🏨 Отели в Мекке и Медине',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
+            _sectionTitle('Отели в Мекке и Медине', Icons.hotel_outlined),
             const SizedBox(height: 12),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -1530,7 +1525,7 @@ class _MainScreenState extends State<MainScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                '🏨 Забронируйте отель',
+                                'Забронируйте отель',
                                 style: TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
@@ -1558,7 +1553,7 @@ class _MainScreenState extends State<MainScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          '📋 Что вы можете забронировать на Trip.com:',
+                          'Что вы можете забронировать на Trip.com:',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -1567,27 +1562,27 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         const SizedBox(height: 12),
                         _buildHotelFeatureRow(
-                          '🏨',
+                          Icons.hotel_outlined,
                           'Отели рядом с Харамом в Мекке',
                         ),
                         const SizedBox(height: 8),
                         _buildHotelFeatureRow(
-                          '🕌',
+                          Icons.mosque_outlined,
                           'Гостиницы возле Мечети Пророка в Медине',
                         ),
                         const SizedBox(height: 8),
                         _buildHotelFeatureRow(
-                          '⭐',
+                          Icons.star_outline,
                           'Отели от 3* до 5* на любой бюджет',
                         ),
                         const SizedBox(height: 8),
                         _buildHotelFeatureRow(
-                          '💰',
+                          Icons.payments_outlined,
                           'Цены от \$30/ночь, скидки и акции',
                         ),
                         const SizedBox(height: 8),
                         _buildHotelFeatureRow(
-                          '🔄',
+                          Icons.replay_outlined,
                           'Бесплатная отмена во многих отелях',
                         ),
                         const SizedBox(height: 16),
@@ -1682,14 +1677,8 @@ class _MainScreenState extends State<MainScreen> {
             // ],
 
             // ========== ЭКСКУРСИИ ==========
-            if (_selectedCategory == 'Все' || _selectedCategory == '🕌 Экскурсии') ...[
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  '🕌 Популярные экскурсии',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
+            if (_selectedCategory == 'Все' || _selectedCategory == 'Экскурсии') ...[
+              _sectionTitle('Популярные экскурсии', Icons.tour_outlined),
               const SizedBox(height: 12),
               SizedBox(
                 height: 260,
@@ -1703,7 +1692,7 @@ class _MainScreenState extends State<MainScreen> {
                       price: '250',
                       groupSize: 'до 10 чел',
                       rating: 4.9,
-                      imageIcon: '🕋',
+                      imageIcon: Icons.nights_stay_outlined,
                     ),
                     const SizedBox(width: 12),
                     _buildExcursionMarketCard(
@@ -1712,7 +1701,7 @@ class _MainScreenState extends State<MainScreen> {
                       price: '300',
                       groupSize: 'до 15 чел',
                       rating: 5.0,
-                      imageIcon: '🕌',
+                      imageIcon: Icons.mosque_outlined,
                     ),
                     const SizedBox(width: 12),
                     _buildExcursionMarketCard(
@@ -1721,7 +1710,7 @@ class _MainScreenState extends State<MainScreen> {
                       price: '220',
                       groupSize: 'до 12 чел',
                       rating: 4.8,
-                      imageIcon: '🌊',
+                      imageIcon: Icons.water_outlined,
                     ),
                   ],
                 ),
@@ -1743,12 +1732,14 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: const Row(
                 children: [
+                  Icon(Icons.local_offer, color: Colors.white, size: 28),
+                  SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '🔥 Скидка 20%',
+                          'Скидка 20%',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
