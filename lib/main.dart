@@ -49,10 +49,10 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: 'Roboto',
       ),
-      home: kIsWeb
-          ? const WebHomeScreen()
-          : MyHomePage(title: 'Umra Guide'),
-     // home: MyHomePage(title: 'Umra Guide'),
+      // home: kIsWeb
+      //     ? const WebHomeScreen()
+      //     : MyHomePage(title: 'Umra Guide'),
+      home: MyHomePage(title: 'Umra Guide'),
      // home: WebHomeScreen(),
       debugShowCheckedModeBanner: false,
     );
