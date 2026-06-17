@@ -72,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Регистрация'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -82,7 +82,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Icon(Icons.person_add, size: 80, color: Color(0xFF1B5E20)),
+              const Icon(Icons.person_add, size: 80, color: Color(0xFF0F6B52)),
               const SizedBox(height: 24),
               TextFormField(
                 controller: _nameController,
@@ -171,7 +171,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SwitchListTile(
                 value: _isGuide,
                 onChanged: (value) => setState(() => _isGuide = value),
-                activeThumbColor: const Color(0xFF1B5E20),
+                activeThumbColor: const Color(0xFF0F6B52),
                 contentPadding: EdgeInsets.zero,
                 title: const Text('Я гид'),
                 subtitle: const Text('Хочу принимать заявки от туристов'),
@@ -180,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ElevatedButton(
                 onPressed: _isLoading ? null : _register,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1B5E20),
+                  backgroundColor: const Color(0xFF0F6B52),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -204,7 +204,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         MaterialPageRoute(builder: (context) => const LoginScreen()),
                       );
                     },
-                    child: const Text('Войти', style: TextStyle(color: Color(0xFF1B5E20))),
+                    child: const Text('Войти', style: TextStyle(color: Color(0xFF0F6B52))),
                   ),
                 ],
               ),

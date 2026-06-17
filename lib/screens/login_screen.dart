@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Вход'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: Padding(
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Icon(Icons.person, size: 80, color: Color(0xFF1B5E20)),
+              const Icon(Icons.person, size: 80, color: Color(0xFF0F6B52)),
               const SizedBox(height: 48),
               TextFormField(
                 controller: _emailController,
@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ElevatedButton(
                 onPressed: _isLoading ? null : _login,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1B5E20),
+                  backgroundColor: const Color(0xFF0F6B52),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialPageRoute(builder: (context) => const RegisterScreen()),
                       );
                     },
-                    child: const Text('Зарегистрироваться', style: TextStyle(color: Color(0xFF1B5E20))),
+                    child: const Text('Зарегистрироваться', style: TextStyle(color: Color(0xFF0F6B52))),
                   ),
                 ],
               ),

@@ -188,7 +188,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             IconButton(
               icon: Icon(
                 Icons.menu,
-                color: const Color(0xFF1B5E20),
+                color: const Color(0xFF0F6B52),
                 size: isUltraSmall ? 20 : 24,
               ),
               onPressed: () => _showMobileMenu(context),
@@ -213,7 +213,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             width: isSmall ? 30 : 40,
             height: isSmall ? 30 : 40,
             decoration: BoxDecoration(
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
               borderRadius: BorderRadius.circular(isSmall ? 8 : 10),
             ),
             child: Center(
@@ -226,7 +226,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: isSmall ? 16 : 24,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
           ),
         ],
@@ -252,7 +252,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     return OutlinedButton(
       onPressed: () {},
       style: OutlinedButton.styleFrom(
-        side: const BorderSide(color: Color(0xFF1B5E20)),
+        side: const BorderSide(color: Color(0xFF0F6B52)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         padding: EdgeInsets.symmetric(
           horizontal: isSmall ? 12 : 20,
@@ -263,7 +263,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
       child: Text(
         'Войти',
         style: TextStyle(
-          color: const Color(0xFF1B5E20),
+          color: const Color(0xFF0F6B52),
           fontSize: isSmall ? 12 : 14,
         ),
       ),
@@ -294,7 +294,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
 
   Widget _mobileMenuItem(String title, IconData icon) {
     return ListTile(
-      leading: Icon(icon, color: const Color(0xFF1B5E20)),
+      leading: Icon(icon, color: const Color(0xFF0F6B52)),
       title: Text(title),
       onTap: () => Navigator.pop(context),
     );
@@ -340,7 +340,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                   width: double.infinity,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                      colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -354,7 +354,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
               width: double.infinity,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                  colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -399,7 +399,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      foregroundColor: const Color(0xFF1B5E20),
+                      foregroundColor: const Color(0xFF0F6B52),
                       padding: EdgeInsets.symmetric(
                         horizontal: isUltraSmall ? 16 : (isMobile ? 24 : 32),
                         vertical: isUltraSmall ? 8 : (isMobile ? 12 : 16),
@@ -438,7 +438,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: _adaptiveFontSize(),
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
             textAlign: TextAlign.center,
           ),
@@ -464,7 +464,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       title: 'Проверенные гиды',
                       description:
                           'Все гиды проходят верификацию и имеют необходимые лицензии',
-                      color: const Color(0xFF1B5E20),
+                      color: const Color(0xFF0F6B52),
                     ),
                     SizedBox(height: _isUltraSmall() ? 8 : 16),
                     _buildAdvantageCard(
@@ -472,7 +472,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       title: 'Поддержка 24/7',
                       description:
                           'Наша команда всегда на связи, чтобы помочь в любой ситуации',
-                      color: const Color(0xFF2E7D32),
+                      color: const Color(0xFF1C8A6B),
                     ),
                     SizedBox(height: _isUltraSmall() ? 8 : 16),
                     _buildAdvantageCard(
@@ -502,7 +502,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                             icon: Icons.verified_user,
                             title: 'Проверенные гиды',
                             description: 'Все гиды проходят верификацию',
-                            color: const Color(0xFF1B5E20),
+                            color: const Color(0xFF0F6B52),
                           ),
                         ),
                         const SizedBox(width: 16),
@@ -511,7 +511,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                             icon: Icons.support_agent,
                             title: 'Поддержка 24/7',
                             description: 'Помощь в любой ситуации',
-                            color: const Color(0xFF2E7D32),
+                            color: const Color(0xFF1C8A6B),
                           ),
                         ),
                       ],
@@ -549,7 +549,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                         title: 'Проверенные гиды',
                         description:
                             'Все гиды проходят верификацию и имеют необходимые лицензии',
-                        color: const Color(0xFF1B5E20),
+                        color: const Color(0xFF0F6B52),
                       ),
                     ),
                     const SizedBox(width: 24),
@@ -559,7 +559,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                         title: 'Поддержка 24/7',
                         description:
                             'Наша команда всегда на связи, чтобы помочь в любой ситуации',
-                        color: const Color(0xFF2E7D32),
+                        color: const Color(0xFF1C8A6B),
                       ),
                     ),
                     const SizedBox(width: 24),
@@ -629,7 +629,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         borderRadius: BorderRadius.circular(isUltraSmall ? 15 : 20),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -652,7 +652,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: isUltraSmall ? 14 : 18,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
           ),
           SizedBox(height: isUltraSmall ? 4 : 8),
@@ -677,12 +677,12 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF1B5E20).withOpacity(0.05),
-            const Color(0xFF2E7D32).withOpacity(0.05),
+            const Color(0xFF0F6B52).withOpacity(0.05),
+            const Color(0xFF1C8A6B).withOpacity(0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(isUltraSmall ? 15 : 20),
-        border: Border.all(color: const Color(0xFF1B5E20).withOpacity(0.1)),
+        border: Border.all(color: const Color(0xFF0F6B52).withOpacity(0.1)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -692,7 +692,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: isUltraSmall ? 16 : 20,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
           ),
           SizedBox(height: isUltraSmall ? 12 : 16),
@@ -756,7 +756,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         borderRadius: BorderRadius.circular(isUltraSmall ? 15 : 20),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -770,7 +770,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: isUltraSmall ? 16 : 20,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
           ),
           SizedBox(height: isUltraSmall ? 12 : 16),
@@ -803,7 +803,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: _adaptiveFontSize(),
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
             textAlign: TextAlign.center,
           ),
@@ -849,7 +849,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         borderRadius: BorderRadius.circular(isUltraSmall ? 12 : 16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -948,7 +948,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       '${guide.pricePerDay.toInt()} SAR',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF1B5E20),
+                        color: const Color(0xFF0F6B52),
                         fontSize: isUltraSmall ? 13 : 16,
                       ),
                     ),
@@ -963,14 +963,14 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(
                           horizontal: isUltraSmall ? 10 : (isMobile ? 16 : 12),
                           vertical: isUltraSmall ? 4 : (isMobile ? 8 : 6),
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                         minimumSize: isUltraSmall ? const Size(0, 28) : null,
                       ),
@@ -1008,7 +1008,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: _adaptiveFontSize(),
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1259,14 +1259,14 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
       ),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+          colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(isUltraSmall ? 15 : 20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1B5E20).withOpacity(0.3),
+            color: const Color(0xFF0F6B52).withOpacity(0.3),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -1382,7 +1382,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
         borderRadius: BorderRadius.circular(isUltraSmall ? 10 : 15),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -1397,7 +1397,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                     Container(
                       padding: EdgeInsets.all(isUltraSmall ? 6 : 10),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF1B5E20).withOpacity(0.1),
+                        color: const Color(0xFF0F6B52).withOpacity(0.1),
                         borderRadius: BorderRadius.circular(
                           isUltraSmall ? 6 : 10,
                         ),
@@ -1405,7 +1405,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       child: Icon(
                         icon,
                         size: isUltraSmall ? 16 : 20,
-                        color: const Color(0xFF1B5E20),
+                        color: const Color(0xFF0F6B52),
                       ),
                     ),
                     SizedBox(width: isUltraSmall ? 8 : 12),
@@ -1443,14 +1443,14 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                         vertical: isUltraSmall ? 4 : 6,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF1B5E20).withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(0xFF0F6B52).withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                       child: Text(
                         price,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: const Color(0xFF1B5E20),
+                          color: const Color(0xFF0F6B52),
                           fontSize: isUltraSmall ? 11 : 13,
                         ),
                       ),
@@ -1464,10 +1464,10 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1B5E20).withOpacity(0.1),
+                    color: const Color(0xFF0F6B52).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(icon, size: 24, color: const Color(0xFF1B5E20)),
+                  child: Icon(icon, size: 24, color: const Color(0xFF0F6B52)),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -1496,14 +1496,14 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1B5E20).withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xFF0F6B52).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(24),
                   ),
                   child: Text(
                     price,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B5E20),
+                      color: Color(0xFF0F6B52),
                     ),
                   ),
                 ),
@@ -1553,7 +1553,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
             style: TextStyle(
               fontSize: _adaptiveFontSize(),
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1574,7 +1574,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
               borderRadius: BorderRadius.circular(isUltraSmall ? 15 : 20),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
+                  color: const Color(0xFF0F6B52).withOpacity(0.06),
                   blurRadius: 20,
                   offset: const Offset(0, 4),
                 ),
@@ -1590,7 +1590,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       topRight: Radius.circular(isUltraSmall ? 15 : 20),
                     ),
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                      colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -1657,7 +1657,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                         style: TextStyle(
                           fontSize: isUltraSmall ? 14 : (isMobile ? 16 : 20),
                           fontWeight: FontWeight.bold,
-                          color: const Color(0xFF1B5E20),
+                          color: const Color(0xFF0F6B52),
                         ),
                       ),
                       SizedBox(height: isUltraSmall ? 16 : 24),
@@ -1794,7 +1794,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF1B5E20),
+                            backgroundColor: const Color(0xFF0F6B52),
                             foregroundColor: Colors.white,
                             padding: EdgeInsets.symmetric(
                               vertical: isUltraSmall
@@ -1842,22 +1842,22 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     return Container(
       padding: EdgeInsets.all(isUltraSmall ? 12 : 20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1B5E20).withOpacity(0.05),
+        color: const Color(0xFF0F6B52).withOpacity(0.05),
         borderRadius: BorderRadius.circular(isUltraSmall ? 10 : 15),
-        border: Border.all(color: const Color(0xFF1B5E20).withOpacity(0.1)),
+        border: Border.all(color: const Color(0xFF0F6B52).withOpacity(0.1)),
       ),
       child: Row(
         children: [
           Container(
             padding: EdgeInsets.all(isUltraSmall ? 6 : 10),
             decoration: BoxDecoration(
-              color: const Color(0xFF1B5E20).withOpacity(0.1),
+              color: const Color(0xFF0F6B52).withOpacity(0.1),
               borderRadius: BorderRadius.circular(isUltraSmall ? 6 : 10),
             ),
             child: Icon(
               icon,
               size: isUltraSmall ? 20 : 28,
-              color: const Color(0xFF1B5E20),
+              color: const Color(0xFF0F6B52),
             ),
           ),
           SizedBox(width: isUltraSmall ? 10 : 16),
@@ -1870,7 +1870,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                   style: TextStyle(
                     fontSize: isUltraSmall ? 13 : 16,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF1B5E20),
+                    color: const Color(0xFF0F6B52),
                   ),
                 ),
                 SizedBox(height: isUltraSmall ? 4 : 8),
@@ -1909,7 +1909,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
     final isUltraSmall = _isUltraSmall();
 
     return Container(
-      color: const Color(0xFF1B5E20),
+      color: const Color(0xFF0F6B52),
       padding: EdgeInsets.symmetric(
         horizontal: isUltraSmall ? 10 : (isMobile ? 16 : 40),
         vertical: isUltraSmall ? 24 : (isMobile ? 32 : 48),
@@ -2133,7 +2133,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                     children: [
                       Icon(
                         Icons.menu_book,
-                        color: const Color(0xFF1B5E20),
+                        color: const Color(0xFF0F6B52),
                         size: isUltraSmall ? 20 : 24,
                       ),
                       SizedBox(width: isUltraSmall ? 6 : 12),
@@ -2219,7 +2219,7 @@ class _WebHomeScreenState extends State<WebHomeScreen> {
                       ElevatedButton(
                         onPressed: () => Navigator.pop(context),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF1B5E20),
+                          backgroundColor: const Color(0xFF0F6B52),
                           foregroundColor: Colors.white,
                           padding: EdgeInsets.symmetric(
                             horizontal: isUltraSmall ? 12 : 16,
@@ -2290,7 +2290,7 @@ class _StatItem extends StatelessWidget {
           style: TextStyle(
             fontSize: isSmall ? 22 : 28,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF1B5E20),
+            color: const Color(0xFF0F6B52),
           ),
         ),
         SizedBox(height: isSmall ? 2 : 4),

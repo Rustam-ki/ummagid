@@ -28,7 +28,7 @@ class _BookingScreenState extends State<BookingScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Бронирование'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -134,7 +134,7 @@ class _BookingScreenState extends State<BookingScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF1B5E20).withOpacity(0.1),
+                color: const Color(0xFF0F6B52).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -149,7 +149,7 @@ class _BookingScreenState extends State<BookingScreen> {
                     style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B5E20),
+                      color: Color(0xFF0F6B52),
                     ),
                   ),
                   Text(
@@ -167,7 +167,7 @@ class _BookingScreenState extends State<BookingScreen> {
               child: ElevatedButton(
                 onPressed: () => _createBooking(context, totalPrice),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1B5E20),
+                  backgroundColor: const Color(0xFF0F6B52),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(

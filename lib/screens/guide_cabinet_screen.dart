@@ -6,7 +6,7 @@ import '../services/auth_service.dart';
 import 'login_screen.dart';
 import 'guide_edit_profile_screen.dart';
 
-const _kGreen = Color(0xFF1B5E20);
+const _kGreen = Color(0xFF0F6B52);
 
 class GuideCabinetScreen extends StatefulWidget {
   const GuideCabinetScreen({super.key});
@@ -405,7 +405,7 @@ class _GuideBookingCard extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: _statusColor(status).withOpacity(0.15),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(24),
                   ),
                   child: Text(
                     _statusText(status),

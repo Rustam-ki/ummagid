@@ -35,17 +35,79 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Umra Guide',
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1B5E20),
-          primary: const Color(0xFF1B5E20),
-          secondary: const Color(0xFFC8A951),
+          seedColor: const Color(0xFF0F6B52),
+          primary: const Color(0xFF0F6B52),
+          secondary: const Color(0xFFC9A227),
         ),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        scaffoldBackgroundColor: const Color(0xFFF6F5F1),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF1B5E20),
+          backgroundColor: Color(0xFF0F6B52),
           foregroundColor: Colors.white,
           elevation: 0,
           centerTitle: true,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        cardTheme: CardThemeData(
+          elevation: 0,
+          color: Colors.white,
+          surfaceTintColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+        ),
+        chipTheme: ChipThemeData(
+          backgroundColor: Colors.white,
+          selectedColor: const Color(0xFF0F6B52).withOpacity(0.12),
+          side: BorderSide(color: Colors.grey.shade300),
+          shape: const StadiumBorder(),
+          labelStyle: const TextStyle(color: Colors.black87),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF0F6B52),
+            foregroundColor: Colors.white,
+            elevation: 0,
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: const Color(0xFF0F6B52),
+            side: const BorderSide(color: Color(0xFF0F6B52)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: Colors.grey.shade300),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: Colors.grey.shade300),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(color: Color(0xFF0F6B52), width: 1.5),
+          ),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          elevation: 8,
         ),
         fontFamily: 'Roboto',
       ),
@@ -92,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _selectedIndex = index;
           });
         },
-        selectedItemColor: const Color(0xFF1B5E20),
+        selectedItemColor: const Color(0xFF0F6B52),
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         items: const [
@@ -142,7 +204,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget _buildHotelFeatureRow(IconData icon, String text) {
     return Row(
       children: [
-        Icon(icon, size: 18, color: const Color(0xFF1B5E20)),
+        Icon(icon, size: 18, color: const Color(0xFF0F6B52)),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
@@ -273,7 +335,7 @@ class _MainScreenState extends State<MainScreen> {
                     child: ElevatedButton(
                       onPressed: () => Navigator.pop(context),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
@@ -302,10 +364,10 @@ class _MainScreenState extends State<MainScreen> {
       width: 240,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -378,7 +440,7 @@ class _MainScreenState extends State<MainScreen> {
                           '$price $currency',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                             fontSize: 16,
                           ),
                         ),
@@ -391,14 +453,14 @@ class _MainScreenState extends State<MainScreen> {
                     ElevatedButton(
                       onPressed: () => _bookHotel(bookingUrl),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 8,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                       ),
                       child: const Text(
@@ -452,12 +514,12 @@ class _MainScreenState extends State<MainScreen> {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1B5E20).withOpacity(0.1),
+                  color: const Color(0xFF0F6B52).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Row(
                   children: [
-                    Icon(Icons.payment, color: Color(0xFF1B5E20)),
+                    Icon(Icons.payment, color: Color(0xFF0F6B52)),
                     SizedBox(width: 8),
                     Text(
                       'Стоимость: от 50 SAR (≈ 1300₽)',
@@ -483,12 +545,12 @@ class _MainScreenState extends State<MainScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Мы свяжемся с вами в ближайшее время!'),
-                            backgroundColor: Color(0xFF1B5E20),
+                            backgroundColor: Color(0xFF0F6B52),
                           ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                       ),
                       child: const Text('Заказать'),
@@ -512,12 +574,12 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: const Color(0xFF1B5E20).withOpacity(0.05),
+        color: const Color(0xFF0F6B52).withOpacity(0.05),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
-          Icon(icon, color: const Color(0xFF1B5E20), size: 24),
+          Icon(icon, color: const Color(0xFF0F6B52), size: 24),
           const SizedBox(height: 4),
           Text(
             title,
@@ -557,7 +619,7 @@ class _MainScreenState extends State<MainScreen> {
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
-          const Icon(Icons.check_circle, color: Color(0xFF1B5E20), size: 18),
+          const Icon(Icons.check_circle, color: Color(0xFF0F6B52), size: 18),
           const SizedBox(width: 8),
           Expanded(child: Text(text)),
         ],
@@ -573,7 +635,7 @@ class _MainScreenState extends State<MainScreen> {
           ? Icon(
               icon,
               size: 18,
-              color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[600],
+              color: isSelected ? const Color(0xFF0F6B52) : Colors.grey[600],
             )
           : null,
       label: Text(label),
@@ -584,15 +646,15 @@ class _MainScreenState extends State<MainScreen> {
         });
       },
       backgroundColor: Colors.white,
-      selectedColor: const Color(0xFF1B5E20).withOpacity(0.1),
+      selectedColor: const Color(0xFF0F6B52).withOpacity(0.1),
       showCheckmark: false,
       labelStyle: TextStyle(
-        color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[700],
+        color: isSelected ? const Color(0xFF0F6B52) : Colors.grey[700],
         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
       ),
       shape: StadiumBorder(
         side: BorderSide(
-          color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[300]!,
+          color: isSelected ? const Color(0xFF0F6B52) : Colors.grey[300]!,
         ),
       ),
     );
@@ -604,7 +666,7 @@ class _MainScreenState extends State<MainScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          Icon(icon, size: 20, color: const Color(0xFF1B5E20)),
+          Icon(icon, size: 20, color: const Color(0xFF0F6B52)),
           const SizedBox(width: 8),
           Text(
             text,
@@ -631,14 +693,14 @@ class _MainScreenState extends State<MainScreen> {
             style: TextStyle(
               fontSize: 14,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              color: isSelected ? const Color(0xFF1B5E20) : Colors.grey[600],
+              color: isSelected ? const Color(0xFF0F6B52) : Colors.grey[600],
             ),
           ),
           const SizedBox(height: 4),
           Container(
             height: 2,
             width: 30,
-            color: isSelected ? const Color(0xFF1B5E20) : Colors.transparent,
+            color: isSelected ? const Color(0xFF0F6B52) : Colors.transparent,
           ),
         ],
       ),
@@ -737,10 +799,10 @@ class _MainScreenState extends State<MainScreen> {
       width: 220,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -755,7 +817,7 @@ class _MainScreenState extends State<MainScreen> {
               Container(
                 height: 120,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1B5E20).withOpacity(0.1),
+                  color: const Color(0xFF0F6B52).withOpacity(0.1),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -770,7 +832,7 @@ class _MainScreenState extends State<MainScreen> {
                       )
                     : const Center(
                         child: Icon(Icons.person,
-                            size: 48, color: Color(0xFF1B5E20)),
+                            size: 48, color: Color(0xFF0F6B52)),
                       ),
               ),
               if (isOnline)
@@ -784,7 +846,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     decoration: BoxDecoration(
                       color: Colors.green,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(24),
                     ),
                     child: const Text(
                       'Online',
@@ -860,7 +922,7 @@ class _MainScreenState extends State<MainScreen> {
                           sar: guide.pricePerDay,
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                             fontSize: 16,
                           ),
                         ),
@@ -884,14 +946,14 @@ class _MainScreenState extends State<MainScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white, 
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 8,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                       ),
                       child: const Text(
@@ -922,10 +984,10 @@ class _MainScreenState extends State<MainScreen> {
       width: 260,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -986,7 +1048,7 @@ class _MainScreenState extends State<MainScreen> {
                           '$price SAR',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                             fontSize: 18,
                           ),
                         ),
@@ -999,10 +1061,10 @@ class _MainScreenState extends State<MainScreen> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                       ),
                       child: const Text('Заказать'),
@@ -1030,10 +1092,10 @@ class _MainScreenState extends State<MainScreen> {
       width: 220,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: const Color(0xFF0F6B52).withOpacity(0.06),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -1045,14 +1107,14 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             height: 100,
             decoration: BoxDecoration(
-              color: const Color(0xFF1B5E20).withOpacity(0.1),
+              color: const Color(0xFF0F6B52).withOpacity(0.1),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
             ),
             child: Center(
-              child: Icon(imageIcon, size: 48, color: const Color(0xFF1B5E20)),
+              child: Icon(imageIcon, size: 48, color: const Color(0xFF0F6B52)),
             ),
           ),
           Padding(
@@ -1104,21 +1166,21 @@ class _MainScreenState extends State<MainScreen> {
                       '$price SAR',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF1B5E20),
+                        color: Color(0xFF0F6B52),
                         fontSize: 16,
                       ),
                     ),
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
                           vertical: 8,
                         ),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(24),
                         ),
                       ),
                       child: const Text('Заказать'),
@@ -1139,7 +1201,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: const Color(0xFFF7F8FA),
       appBar: AppBar(
         title: const Text('Umra Guide'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
         centerTitle: false,
         elevation: 0,
@@ -1161,9 +1223,9 @@ class _MainScreenState extends State<MainScreen> {
                     side: BorderSide(color: Colors.grey.shade200),
                   ),
                 ),
-                leading: const Icon(Icons.search, color: Color(0xFF1B5E20)),
+                leading: const Icon(Icons.search, color: Color(0xFF0F6B52)),
                 trailing: const [
-                  Icon(Icons.tune, color: Color(0xFF1B5E20)),
+                  Icon(Icons.tune, color: Color(0xFF0F6B52)),
                 ],
               ),
             ),
@@ -1175,11 +1237,11 @@ class _MainScreenState extends State<MainScreen> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                  colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),
@@ -1282,10 +1344,10 @@ class _MainScreenState extends State<MainScreen> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.08),
+                    color: const Color(0xFF0F6B52).withOpacity(0.05),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -1296,7 +1358,7 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   const Row(
                     children: [
-                      Icon(Icons.support_agent, color: Color(0xFF1B5E20), size: 28),
+                      Icon(Icons.support_agent, color: Color(0xFF0F6B52), size: 28),
                       SizedBox(width: 12),
                       Expanded(
                         child: Text(
@@ -1304,7 +1366,7 @@ class _MainScreenState extends State<MainScreen> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                           ),
                         ),
                       ),
@@ -1365,7 +1427,7 @@ class _MainScreenState extends State<MainScreen> {
                       icon: const Icon(Icons.headset_mic),
                       label: const Text('Заказать помощь при заселении'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF1B5E20),
+                        backgroundColor: const Color(0xFF0F6B52),
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(
@@ -1414,14 +1476,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(24),
                     ),
                     child: const Row(
                       children: [
                         Icon(
                           Icons.currency_exchange,
                           size: 16,
-                          color: Color(0xFF1B5E20),
+                          color: Color(0xFF0F6B52),
                         ),
                         SizedBox(width: 4),
                         Text('SAR', style: TextStyle(fontSize: 12)),
@@ -1436,7 +1498,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(24),
                     ),
                     child: const Row(
                       children: [
@@ -1482,10 +1544,10 @@ class _MainScreenState extends State<MainScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
+                    color: const Color(0xFF0F6B52).withOpacity(0.06),
                     blurRadius: 10,
                     offset: const Offset(0, 2),
                   ),
@@ -1502,7 +1564,7 @@ class _MainScreenState extends State<MainScreen> {
                         topRight: Radius.circular(20),
                       ),
                       gradient: const LinearGradient(
-                        colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                        colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -1557,7 +1619,7 @@ class _MainScreenState extends State<MainScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -1597,7 +1659,7 @@ class _MainScreenState extends State<MainScreen> {
                               'Забронировать отель на Trip.com',
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF1B5E20),
+                              backgroundColor: const Color(0xFF0F6B52),
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               shape: RoundedRectangleBorder(
@@ -1724,7 +1786,7 @@ class _MainScreenState extends State<MainScreen> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFFFF8F00), Color(0xFFFFB300)],
+                  colors: [Color(0xFFC9A227), Color(0xFFE3C467)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -1851,7 +1913,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Времена намазов'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -1864,7 +1926,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
-                  BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 8),
+                  BoxShadow(color: const Color(0xFF0F6B52).withOpacity(0.06), blurRadius: 8),
                 ],
               ),
               child: Column(
@@ -1901,9 +1963,9 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
+                  colors: [Color(0xFF0F6B52), Color(0xFF1C8A6B)],
                 ),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
               ),
               child: Column(
                 children: [
@@ -1936,7 +1998,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
-                  BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 8),
+                  BoxShadow(color: const Color(0xFF0F6B52).withOpacity(0.06), blurRadius: 8),
                 ],
               ),
               child: Column(
@@ -1993,7 +2055,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: _selectedCity == city
-            ? const Color(0xFF1B5E20)
+            ? const Color(0xFF0F6B52)
             : Colors.grey[300],
         foregroundColor: _selectedCity == city ? Colors.white : Colors.black,
       ),
@@ -2015,7 +2077,7 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
             time,
             style: const TextStyle(
               fontSize: 16,
-              color: Color(0xFF1B5E20),
+              color: Color(0xFF0F6B52),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -2038,7 +2100,7 @@ class QiblaScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Направление Киблы'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: Center(
@@ -2053,7 +2115,7 @@ class QiblaScreen extends StatelessWidget {
                 height: 250,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: const Color(0xFF1B5E20), width: 3),
+                  border: Border.all(color: const Color(0xFF0F6B52), width: 3),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
@@ -2069,7 +2131,7 @@ class QiblaScreen extends StatelessWidget {
                       Icon(
                         Icons.arrow_upward,
                         size: 80,
-                        color: Color(0xFF1B5E20),
+                        color: Color(0xFF0F6B52),
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -2077,7 +2139,7 @@ class QiblaScreen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1B5E20),
+                          color: Color(0xFF0F6B52),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -2093,10 +2155,10 @@ class QiblaScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
+                      color: const Color(0xFF0F6B52).withOpacity(0.06),
                       blurRadius: 8,
                     ),
                   ],
@@ -2108,7 +2170,7 @@ class QiblaScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF1B5E20),
+                        color: Color(0xFF0F6B52),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -2167,7 +2229,7 @@ class QiblaScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.check_circle, color: Color(0xFF1B5E20), size: 20),
+          const Icon(Icons.check_circle, color: Color(0xFF0F6B52), size: 20),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -2203,7 +2265,7 @@ class BestDaysScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Лучшие дни для Умры'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -2276,7 +2338,7 @@ class BestDaysScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B5E20),
+                      color: Color(0xFF0F6B52),
                     ),
                   ),
                 ),
@@ -2286,14 +2348,14 @@ class BestDaysScreen extends StatelessWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1B5E20).withOpacity(0.1),
+                    color: const Color(0xFF0F6B52).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     badge,
                     style: const TextStyle(
                       fontSize: 10,
-                      color: Color(0xFF1B5E20),
+                      color: Color(0xFF0F6B52),
                     ),
                   ),
                 ),
@@ -2325,7 +2387,7 @@ class ReviewsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Отзывы паломников'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -2338,9 +2400,9 @@ class ReviewsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(24),
                 boxShadow: [
-                  BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 8),
+                  BoxShadow(color: const Color(0xFF0F6B52).withOpacity(0.06), blurRadius: 8),
                 ],
               ),
               child: Column(
@@ -2355,7 +2417,7 @@ class ReviewsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B5E20),
+                      color: Color(0xFF0F6B52),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -2382,7 +2444,7 @@ class ReviewsScreen extends StatelessWidget {
               icon: const Icon(Icons.add),
               label: const Text('Оставить отзыв'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1B5E20),
+                backgroundColor: const Color(0xFF0F6B52),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 30,
@@ -2543,7 +2605,7 @@ class ReviewsScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1B5E20),
+                backgroundColor: const Color(0xFF0F6B52),
                 foregroundColor: Colors.white,
               ),
               child: const Text('Отправить'),
@@ -2566,7 +2628,7 @@ class UmraScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Руководство по Умре'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -2625,7 +2687,7 @@ class UmraScreen extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: const Color(0xFF1B5E20),
+                  backgroundColor: const Color(0xFF0F6B52),
                   child: Icon(icon, color: Colors.white),
                 ),
                 const SizedBox(width: 12),

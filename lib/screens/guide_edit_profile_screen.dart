@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/guide.dart';
 import '../services/guide_service.dart';
 
-const _kGreen = Color(0xFF1B5E20);
+const _kGreen = Color(0xFF0F6B52);
 
 class GuideEditProfileScreen extends StatefulWidget {
   final Guide guide;

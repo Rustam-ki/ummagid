@@ -81,7 +81,7 @@ Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Профиль'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: _isLoggedIn
@@ -96,8 +96,8 @@ Widget build(BuildContext context) {
                       children: [
                         CircleAvatar(
                           radius: 50,
-                          backgroundColor: const Color(0xFF1B5E20).withOpacity(0.1),
-                          child: const Icon(Icons.person, size: 50, color: Color(0xFF1B5E20)),
+                          backgroundColor: const Color(0xFF0F6B52).withOpacity(0.1),
+                          child: const Icon(Icons.person, size: 50, color: Color(0xFF0F6B52)),
                         ),
                         const SizedBox(height: 16),
                         Text(
@@ -115,9 +115,9 @@ Widget build(BuildContext context) {
                   // Кабинет гида (только для гидов)
                   if (_isGuide)
                     Card(
-                      color: const Color(0xFF1B5E20).withOpacity(0.06),
+                      color: const Color(0xFF0F6B52).withOpacity(0.06),
                       child: ListTile(
-                        leading: const Icon(Icons.badge, color: Color(0xFF1B5E20)),
+                        leading: const Icon(Icons.badge, color: Color(0xFF0F6B52)),
                         title: const Text('Кабинет гида'),
                         subtitle: const Text('Мои брони и профиль'),
                         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
@@ -134,7 +134,7 @@ Widget build(BuildContext context) {
                   // Мои бронирования
                   Card(
                     child: ListTile(
-                      leading: const Icon(Icons.history, color: Color(0xFF1B5E20)),
+                      leading: const Icon(Icons.history, color: Color(0xFF0F6B52)),
                       title: const Text('Мои бронирования'),
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                       onTap: () {
@@ -148,7 +148,7 @@ Widget build(BuildContext context) {
                   // Редактировать профиль
                   Card(
                     child: ListTile(
-                      leading: const Icon(Icons.edit, color: Color(0xFF1B5E20)),
+                      leading: const Icon(Icons.edit, color: Color(0xFF0F6B52)),
                       title: const Text('Редактировать профиль'),
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                       onTap: () {
@@ -178,7 +178,7 @@ Widget build(BuildContext context) {
                 children: [
                   const CircleAvatar(
                     radius: 60,
-                    backgroundColor: Color(0xFF1B5E20),
+                    backgroundColor: Color(0xFF0F6B52),
                     child: Icon(Icons.person, size: 60, color: Colors.white),
                   ),
                   const SizedBox(height: 20),
@@ -194,7 +194,7 @@ Widget build(BuildContext context) {
                       ).then((_) => _checkAuth());
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF1B5E20),
+                      backgroundColor: const Color(0xFF0F6B52),
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -209,7 +209,7 @@ Widget build(BuildContext context) {
                         MaterialPageRoute(builder: (context) => RegisterScreen()),
                       ).then((_) => _checkAuth());
                     },
-                    child: const Text('Регистрация', style: TextStyle(color: Color(0xFF1B5E20))),
+                    child: const Text('Регистрация', style: TextStyle(color: Color(0xFF0F6B52))),
                   ),
                 ],
               ),

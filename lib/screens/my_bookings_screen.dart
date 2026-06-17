@@ -132,7 +132,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Мои бронирования'),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: RefreshIndicator(
@@ -246,7 +246,7 @@ class _BookingCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
                     color: _getStatusColor(booking['status']).withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(24),
                   ),
                   child: Text(
                     _getStatusText(booking['status']),
@@ -357,7 +357,7 @@ class _BookingCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF1B5E20),
+                        color: Color(0xFF0F6B52),
                       ),
                     ),
                   ],
@@ -369,7 +369,7 @@ class _BookingCard extends StatelessWidget {
                       side: const BorderSide(color: Colors.red),
                       foregroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                     child: const Text('Отменить'),

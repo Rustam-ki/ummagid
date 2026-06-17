@@ -14,7 +14,7 @@ class GuideDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(guide.name),
-        backgroundColor: const Color(0xFF1B5E20),
+        backgroundColor: const Color(0xFF0F6B52),
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
@@ -87,7 +87,7 @@ class GuideDetailScreen extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     color: Colors.amber,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(24),
                   ),
                   child: Text(
                     '⭐ ${guide.rating.toStringAsFixed(1)}',
@@ -156,7 +156,7 @@ class GuideDetailScreen extends StatelessWidget {
                 children: guide.services!.map((service) {
                   return Chip(
                     label: Text(service),
-                    backgroundColor: const Color(0xFF1B5E20).withOpacity(0.1),
+                    backgroundColor: const Color(0xFF0F6B52).withOpacity(0.1),
                   );
                 }).toList(),
               ),
@@ -196,7 +196,7 @@ class GuideDetailScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF1B5E20).withOpacity(0.1),
+                color: const Color(0xFF0F6B52).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -213,7 +213,7 @@ class GuideDetailScreen extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1B5E20),
+                          color: Color(0xFF0F6B52),
                         ),
                       ),
                       if (guide.pricePerHour != null)
@@ -223,7 +223,7 @@ class GuideDetailScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           style: const TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                           ),
                         ),
                       if (guide.pricePerUmrah != null)
@@ -233,7 +233,7 @@ class GuideDetailScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           style: const TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF1B5E20),
+                            color: Color(0xFF0F6B52),
                           ),
                         ),
                     ],
@@ -261,7 +261,7 @@ class GuideDetailScreen extends StatelessWidget {
                         sar: item.price,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF1B5E20),
+                          color: Color(0xFF0F6B52),
                         ),
                       ),
                     ],
@@ -284,7 +284,7 @@ class GuideDetailScreen extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1B5E20),
+                  backgroundColor: const Color(0xFF0F6B52),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
