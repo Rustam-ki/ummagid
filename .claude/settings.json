@@ -21,7 +21,9 @@
       "Read(//c/src/flutter/packages/flutter/lib/src/material/**)",
       "Bash(node -e ' *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(/c/src/flutter/bin/flutter pub *)"
     ],
     "additionalDirectories": [
       "c:\\src\\my_first_app",

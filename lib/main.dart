@@ -6,6 +6,7 @@ import '../models/guide.dart';      // ← если файл в папке model
 import '../services/api_service.dart';
 import '../screens/guide_detail_screen.dart';
 import 'widgets/sar_price_text.dart';
+import 'widgets/sos_button.dart';
 import 'package:flutter_cors_image/flutter_cors_image.dart'; // ← ДОБАВЬТЕ ЭТУ СТРОКУ
 import 'screens/my_bookings_screen.dart';
 import 'screens/profile_screen.dart';
@@ -146,6 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex],
+      floatingActionButton: const SosButton(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
